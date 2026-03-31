@@ -3,7 +3,7 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -20,11 +20,25 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy . --project-name=kia-picanto --branch=master
+          command: pages deploy . --project-name=kia-picanto --branch=main
 
-      - name: Add Custom Domain
+      - name: Add Custom Domain to Pages
+        continue-on-error: true
         run: |
           curl -X POST "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/pages/projects/kia-picanto/domains" \
             -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
             -H "Content-Type: application/json" \
             --data '{"name":"kia.lichocki.eu"}'
+
+      - name: Update DNS Record
+        continue-on-error: true
+        run: |
+          # Note: This step assumes you have CLOUDFLARE_ZONE_ID in your secrets
+          # and your domain lichocki.eu is managed by Cloudflare.
+          # If not, you need to manually add a CNAME record: kia -> kia-picanto.pages.dev
+          if [ -n "${{ secrets.CLOUDFLARE_ZONE_ID }}" ]; then
+            curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/dns_records" \
+              -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+              -H "Content-Type: application/json" \
+              --data '{"type":"CNAME","name":"kia","content":"kia-picanto.pages.dev","ttl":1,"proxied":true}'
+          fi
