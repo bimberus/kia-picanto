@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Na sprzedaż: KIA Picanto 1.2 DPI (2022) - Jak nowa!</title>
+    <!-- Modern Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-yellow: #f5b041; /* Kolor HONEY BEE */
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* UI Structure */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(18,18,18,0.95) 100%), url('20260331_132620.jpg') center/cover no-repeat;
+            border-bottom: 2px solid var(--primary-yellow);
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary-yellow);
+            color: var(--darker-bg);
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(245, 176, 65, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, #aaaaaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            color: var(--primary-yellow);
+            -webkit-text-fill-color: var(--primary-yellow);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .location-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-yellow);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .price-tag {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-yellow);
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(245, 176, 65, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .price-tag small {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            text-shadow: none;
+            align-self: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-yellow);
+            color: var(--darker-bg);
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(245, 176, 65, 0.3);
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(245, 176, 65, 0.5);
+        }
+
+        /* Info Highlights Section */
+        .highlights {
+            padding: 80px 0;
+            background-color: var(--darker-bg);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .highlight-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary-yellow);
+        }
+
+        .highlight-card.featured {
+            border-color: var(--primary-yellow);
+            box-shadow: 0 0 30px rgba(245, 176, 65, 0.15);
+            animation: pulse 3s infinite;
+        }
+
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(245, 176, 65, 0.1);
+            color: var(--primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .highlight-card p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Description & Specs */
+        .details-section {
+            padding: 100px 0;
+            background-color: var(--dark-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .section-header span {
+            color: var(--primary-yellow);
+        }
+
+        .specs-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .description-text {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        
+        .description-text p {
+            margin-bottom: 20px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .spec-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            border-left: 4px solid var(--primary-yellow);
+            transition: all 0.3s ease;
+        }
+
+        .spec-item:hover {
+            background: rgba(245, 176, 65, 0.05);
+        }
+
+        .spec-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spec-val {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0 120px;
+            background-color: var(--darker-bg);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Footer / Contact */
+        footer {
+            background-color: #050505;
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .contact-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-yellow);
+            margin: 30px 0;
+            display: inline-block;
+            background: var(--glass-bg);
+            padding: 15px 40px;
+            border-radius: 40px;
+            border: 1px solid var(--glass-border);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-number:hover {
+            transform: scale(1.05);
+            background: rgba(245, 176, 65, 0.1);
+        }
+
+        .location-info {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        /* Lightbox (Basic implementation via HTML/CSS/JS) */
+        #lightbox {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #lightbox.active {
+            display: flex;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 30px; right: 40px;
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: var(--primary-yellow);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .specs-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .price-tag {
+                font-size: 2.5rem;
+            }
+            .contact-number {
+                font-size: 2rem;
+                padding: 10px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="badge"><i class="fas fa-star"></i> Salon Polska - 1. Właściciel</span>
+            <h1>KIA <span>Picanto</span></h1>
+            <div class="location-badge">
+                <i class="fas fa-map-marker-alt"></i> Józefosław, ul. Alaski
+            </div>
+            <p class="tagline">Wyjątkowy egzemplarz z najlepszym silnikiem 1.2 DPI (84 KM). Salonowy stan, symboliczny przebieg i pełna gwarancja producenta.</p>
+            
+            <div class="price-tag">
+                51 000 zł <small>do negocjacji</small>
+            </div>
+            
+            <a href="tel:+48606154803" class="cta-button">Zadzwoń: 606 154 803</a>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights">
+        <div class="container grid-3">
+            <div class="highlight-card featured">
+                <div class="icon-circle">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3>Przebieg: 6 500 km</h3>
+                <p>Samochód jest praktycznie nowy. Symboliczny przebieg sprawia, że auto wciąż pachnie nowością i nie wykazuje żadnych śladów zużycia.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="icon-circle">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Gwarancja do 2030r.</h3>
+                <p>Pojazd objęty jest słynną, <strong>7-letnią gwarancją KIA</strong>. Spokój ducha i pewność techniczna na długie lata użytkowania.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="icon-circle">
+                    <i class="fas fa-engine"></i>
+                </div>
+                <h3>Silnik 1.2 DPI (84 KM)</h3>
+                <p>Najlepsza jednostka w tym modelu. 4-cylindry zapewniają wysoką kulturę pracy, dynamikę i bardzo niskie spalanie.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="details-section" id="specyfikacja">
+        <div class="container">
+            <div class="section-header">
+                <h2>Specyfikacja <span>Pojazdu</span></h2>
+                <p>Wersja wyposażenia M - Solidność i prostota</p>
+            </div>
+
+            <div class="specs-container">
+                <div class="description-text">
+                    <p>Prezentowana KIA Picanto to wersja <strong>M</strong>, która stawia na sprawdzoną technologię i wygodę. Zamiast ekranu dotykowego posiada klasyczne radio z fizycznymi przyciskami i modułem <strong>Bluetooth</strong>, co przekłada się na intuicyjną obsługę podczas jazdy.</p>
+                    <p>Samochód w unikalnym kolorze <strong>HONEY BEE</strong> przyciąga wzrok i wyróżnia się na drodze. Kupiony w polskim salonie, od nowości w rękach jednego właściciela.</p>
+                    <p>Auto jest w 100% bezwypadkowe i nie wymaga absolutnie żadnego wkładu finansowego. Idealna propozycja dla osoby szukającej pewnego auta miejskiego z polskiego salonu.</p>
+                </div>
+                
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <span class="spec-label">Silnik</span>
+                        <span class="spec-val">1.2 DPI (84 KM / 62 kW)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Przebieg</span>
+                        <span class="spec-val">6 500 km</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Rok produkcji</span>
+                        <span class="spec-val">2022</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">I rej.</span>
+                        <span class="spec-val">17.04.2023</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Kolor</span>
+                        <span class="spec-val">Honey Bee (Żółty)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Wersja</span>
+                        <span class="spec-val">M (Bluetooth, Klima)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Gwarancja</span>
+                        <span class="spec-val">Tak (do 04.2030)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">VIN</span>
+                        <span class="spec-val">KNAB251AAPT043365</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Galeria <span>Zdjęć</span></h2>
+                <p>Zdjęcia przedstawiają oferowany egzemplarz. Kliknij, aby powiększyć.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('20260331_132620.jpg')">
+                    <img src="20260331_132620.jpg" alt="KIA Picanto Przód">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('20260331_132628.jpg')">
+                    <img src="20260331_132628.jpg" alt="KIA Picanto Tył">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('20260331_132635.jpg')">
+                    <img src="20260331_132635.jpg" alt="KIA Picanto Konsola">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('20260331_132645.jpg')">
+                    <img src="20260331_132645.jpg" alt="KIA Picanto Zegary">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('20260331_132659.jpg')">
+                    <img src="20260331_132659.jpg" alt="KIA Picanto Deska">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('20260331_132708.jpg')">
+                    <img src="20260331_132708.jpg" alt="KIA Picanto Bagażnik">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('20260331_132737.jpg')">
+                    <img src="20260331_132737.jpg" alt="KIA Picanto Bok">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontakt">
+        <div class="container footer-content">
+            <h2>Zapraszam do kontaktu</h2>
+            <p>Samochód można obejrzeć w Józefosławiu przy ul. Alaski.</p>
+            <a href="tel:+48606154803" class="contact-number">
+                <i class="fas fa-phone-alt"></i> 606 154 803
+            </a>
+            <div class="location-info">
+                <i class="fas fa-map-pin"></i> Józefosław, ul. Alaski
+            </div>
+            <p style="color: var(--text-muted); margin-top: 30px;">Cena: 51 000 zł • Pierwszy właściciel • Salon PL</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Powiększenie">
+    </div>
+
+    <script>
+        function openLightbox(imgSrc) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
