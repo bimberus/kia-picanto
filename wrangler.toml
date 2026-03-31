@@ -1,8 +1,3 @@
 name = "kia-picanto"
 compatibility_date = "2026-03-31"
 pages_build_output_dir = "."
-
-[env.production]
-routes = [
-  { pattern = "kia.lichocki.eu", custom_domain = true }
-]
